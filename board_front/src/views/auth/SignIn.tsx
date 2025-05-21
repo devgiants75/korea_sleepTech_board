@@ -11,6 +11,7 @@ import {
 } from '@/views/auth/auth.style'; // 구조 분해 할당
 import { SignInRequestDto } from '@/dtos/request/auth/sign-in.request.dto';
 import { signInRequest } from '@/apis';
+import { useUserStore } from '@/stores/user.store';
 
 // 클라이언트에서 토큰 저장 (쿠키 사용)
 // : react-cookie
@@ -20,6 +21,7 @@ function SignIn() {
   //& === Hook === //
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(["accessToken"]);
+  const setLogin = useUserStore((state) => state.setLogin);
 
   //& === State === //
   const [form, setForm] = useState({
@@ -61,6 +63,8 @@ function SignIn() {
       expires: expireDate,
       sameSite: 'strict',
     });
+
+    setLogin();
 
     alert('로그인 성공');
     navigate('/');

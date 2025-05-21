@@ -25,7 +25,7 @@ export const responseErrorHandler = (error: AxiosError<ResponseDto>) => {
 
 //& function: Authorization Bearer 헤더 //
 // >> 인증이 필요한 모든 요청에 JWT access token을 붙이기 위해 사용
-const bearerAuthorization = (accessToken: string) => ({
+export const bearerAuthorization = (accessToken: string) => ({
   headers: { 'Authorization': `Bearer ${accessToken}` }
 }); // 객체 단일 반환 불가: 소괄호로 감싸서 전달
 
