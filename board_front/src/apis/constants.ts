@@ -1,14 +1,15 @@
 // constants.ts
 // # URL 상수 정의
 //& variable: URL 상수 //
-const API_DOMAIN = 'http://localhost:8080';
-// const API_DOMAIN = process.env.REACT_APP_API_DOMAIN || "http://localhost:8080";
+
+// const API_DOMAIN = 'http://localhost:8080';
+const API_DOMAIN = import.meta.env.REACT_APP_API_DOMAIN || "http://localhost:8080";
 
 //! 1. 인증 관련 요청 베이스 URL
 const AUTH_MODULE_URL = `${API_DOMAIN}/api/v1/auth`;
 //? 인증 관련 기능
-const SIGN_UP_URL = `${AUTH_MODULE_URL}/signup`;
-const SIGN_IN_URL = `${AUTH_MODULE_URL}/login`;
+export const SIGN_UP_URL = `${AUTH_MODULE_URL}/signup`;
+export const SIGN_IN_URL = `${AUTH_MODULE_URL}/login`;
 
 //! 2. 게시글 관련 요청 베이스 URL
 const BOARD_MODULE_URL = `${API_DOMAIN}/api/v1/boards`;

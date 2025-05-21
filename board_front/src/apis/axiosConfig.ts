@@ -1,16 +1,19 @@
 //# Axios 인스턴스 및 공통 설정
 
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { ResponseDto } from "./dto/response";
+import { ResponseDto } from "../dtos/response";
 
 // Axios 인스턴스 생성
 export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_DOMAIN || "http://localhost:8080",
+  // process.env.REACT_APP~~
+  // : REACT 프로젝트에서 환경 변수를 사용하는 방식
+  // > 프로젝트 루트에 .env 파일을 생성하여 데이터 저장
+  baseURL: import.meta.env.REACT_APP_API_DOMAIN || "http://localhost:8080",
 });
 
-// 공통 응답 처리
+// 공통 응답 처리 (응답 핸들러)
 // 1) 성공
-export const responseSuccessHandler = <T = any>(response: AxiosResponse<ResponseDto>) => {
+export const responseSuccessHandler = <T = any>(response: AxiosResponse<ResponseDto<T>>) => {
   return response.data;
 }
 
