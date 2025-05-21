@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import SignUp from './views/auth/SignUp'
+import SignIn from './views/auth/SignIn'
 
 //! 프로젝트 기초 환경 설정
 // 1. 외부 라이브러리 설치 (의존성 설치)
@@ -25,6 +26,7 @@ function App() {
     <>
       <Routes>
         <Route path='/auth/sign-up' element={<SignUp />} />
+        <Route path='/auth/sign-in' element={<SignIn />} />
       </Routes>
     </>
   )

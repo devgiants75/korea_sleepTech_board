@@ -1,64 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { signUpRequest } from '@/apis';
 import { SignUpRequestDto } from '@/dtos/request/auth/sign-up.request.dto';1
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
-//* === Style === //
-const containerStyle = css`
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 40px;
-  border: 1px solid #e0e0e0;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
-`;
-
-const titleStyle = css`
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 30px;
-`;
-
-const inputStyle = css`
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: border 0.3s;
-  &:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
-`;
-
-const buttonStyle = css`
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
-  background-color: #4caf50;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: #43a047;
-  }
-`;
-
-const errorMessageStyle = css`
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 14px;
-`;
+import * as authStyle from '@/views/auth/auth.style';
 
 function SignUp() { // rfce: 함수형 컴포넌트 생성
   //& === Hook === //
@@ -112,15 +57,15 @@ function SignUp() { // rfce: 함수형 컴포넌트 생성
   }
 
   return (
-    <div css={containerStyle}>
-      <h2 css={titleStyle}>회원가입</h2>
+    <div css={authStyle.containerStyle}>
+      <h2 css={authStyle.titleStyle}>회원가입</h2>
       <input 
         type="email"
         placeholder='이메일'
         name='email'
         value={form.email}
         onChange={onInputChange} 
-        css={inputStyle}
+        css={authStyle.inputStyle}
       />
       <input 
         type="password"
@@ -128,7 +73,7 @@ function SignUp() { // rfce: 함수형 컴포넌트 생성
         name='password'
         value={form.password}
         onChange={onInputChange} 
-        css={inputStyle}
+        css={authStyle.inputStyle}
       />
       <input 
         type="password"
@@ -136,12 +81,12 @@ function SignUp() { // rfce: 함수형 컴포넌트 생성
         name='passwordCheck'
         value={form.passwordCheck}
         onChange={onInputChange} 
-        css={inputStyle}
+        css={authStyle.inputStyle}
       />
-      <button onClick={onSignUpClick} css={buttonStyle}>
+      <button onClick={onSignUpClick} css={authStyle.buttonStyle}>
         회원가입
       </button>
-      {message && <p css={errorMessageStyle}>{message}</p>}
+      {message && <p css={authStyle.errorMessageStyle}>{message}</p>}
     </div>
   )
 }
