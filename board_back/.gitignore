@@ -2,6 +2,7 @@
 
 # 1. 제거할 파일명을 .gitignore에 추가
 application.properties
+# +) sercret 추가 제거 필요!!
 # 또는 모든 properties 파일을 제외하려면
 *.properties
 
