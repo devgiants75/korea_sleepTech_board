@@ -27,7 +27,6 @@ public class AuthController {
     // 1) 회원가입
     @PostMapping(POST_SIGN_UP)
     public ResponseEntity<ResponseDto<UserSignUpResponseDto>> signup(@Valid @RequestBody UserSignUpRequestDto dto) {
-        System.out.println("=== 회원가입 요청 도착 ===");
         ResponseDto<UserSignUpResponseDto> response = authService.signup(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
