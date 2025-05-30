@@ -1,7 +1,10 @@
 import { ResponseDto } from "@/dtos/response";
-import { axiosInstance, bearerAuthorization, responseErrorHandler, responseSuccessHandler } from "./axiosConfig";
+import { axiosInstance, bearerAuthorization, responseErrorHandler, responseSuccessHandler } from "../axiosConfig";
 import { AxiosError } from "axios";
-import { DELETE_BOARD_URL, GET_BOARD_URL, GET_MY_BOARD_URL, POST_BOARD_URL, PUT_BOARD_URL } from "./constants";
+import { DELETE_BOARD_URL, GET_BOARD_URL, GET_MY_BOARD_URL, POST_BOARD_URL, PUT_BOARD_URL } from "../constants";
+import { PostBoardRequestDto } from "@/dtos/request/board/post-board.request.dto";
+import { BoardResponseDto } from "@/dtos/response/board/board.response.dto";
+import { UpdateBoardRequestDto } from "@/dtos/request/board/update-board.request.dto";
 
 // 생성(CREATE)
 export const postBoard = async (dto: PostBoardRequestDto, accessToken: string): Promise<ResponseDto<BoardResponseDto>> => {
