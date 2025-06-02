@@ -28,6 +28,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// === WebSocket ===
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	// === Redis Pub/Sub ===
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+	// === 파일 업로드 ===
+	implementation 'commons-io:commons-io:2.11.0'
+
+	// === Reactor Core (Mono 사용) ===
+	implementation 'io.projectreactor:reactor-core'
 
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
@@ -36,7 +50,6 @@ dependencies {
 	implementation('jakarta.validation:jakarta.validation-api:3.1.0')
 	implementation('org.hibernate.validator:hibernate-validator:8.0.0.Final')
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'com.h2database:h2' // 실제 배포 시 제거 가능 (인메모리 DB로 테스트 시 유용)
 

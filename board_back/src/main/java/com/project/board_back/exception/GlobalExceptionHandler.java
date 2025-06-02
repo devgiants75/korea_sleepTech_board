@@ -51,6 +51,7 @@ public class GlobalExceptionHandler {
 
     private ResponseEntity<ResponseDto<?>> logAndRespond(String code, String message, HttpStatus status, Exception e) {
         e.printStackTrace();
-        return ResponseDto.fail(code, message, status);
+        return ResponseDto.failWithStatus(code, message, status);
+
     }
 }
