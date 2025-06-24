@@ -1,12 +1,14 @@
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import SignUp from './views/auth/SignUp'
-import SignIn from './views/auth/SignIn'
-import { useEffect } from 'react'
-import { useCookies } from 'react-cookie'
-import { useUserStore } from './stores/user.store'
-import LogoutButton from './components/LogoutButton'
-import FileUpload from './views/file/FileUpload'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import SignUp from "./views/auth/SignUp";
+import SignIn from "./views/auth/SignIn";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { useUserStore } from "./stores/user.store";
+import LogoutButton from "./components/LogoutButton";
+import FileUpload from "./views/file/FileUpload";
+import DaumPostcodeEmbed from "react-daum-postcode";
+import PostCode from "./views/post-code/PostCode";
 
 //! 프로젝트 기초 환경 설정
 // 1. 외부 라이브러리 설치 (의존성 설치)
@@ -28,11 +30,11 @@ import FileUpload from './views/file/FileUpload'
 
 function App() {
   //& === HOOK === //
-  const [cookies ] = useCookies(["accessToken"]);
+  const [cookies] = useCookies(["accessToken"]);
 
   // (state) => state.setLogin
-  // : Zustand 내부의 상태(속성1, 메서드2)에서 setLogin만 꺼내옴 
-  const setLogin = useUserStore((state) => state.setLogin); 
+  // : Zustand 내부의 상태(속성1, 메서드2)에서 setLogin만 꺼내옴
+  const setLogin = useUserStore((state) => state.setLogin);
   const isLogin = useUserStore((state) => state.isLogin);
 
   useEffect(() => {
@@ -57,13 +59,25 @@ function App() {
           </>
         )}
       </header>
+      <div
+        style={{
+          backgroundColor: "lightgrey",
+          width: "600px",
+          height: "700px",
+          border: "1px solid black",
+          margin: "0 auto",
+          padding: '10px'
+        }}
+      >
+        <PostCode />
+      </div>
       <FileUpload />
       <Routes>
-        <Route path='/auth/sign-up' element={<SignUp />} />
-        <Route path='/auth/sign-in' element={<SignIn />} />
+        <Route path="/auth/sign-up" element={<SignUp />} />
+        <Route path="/auth/sign-in" element={<SignIn />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

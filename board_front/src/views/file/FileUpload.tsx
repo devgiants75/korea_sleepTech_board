@@ -1,4 +1,4 @@
-import { uploadPost } from '@/apis/uploadApi';
+import { uploadFile } from '@/apis/upload/upload';
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 // PostForm
@@ -20,7 +20,7 @@ function FileUpload() {
     ], { type: 'application/json'}));
 
     if (file) formData.append('file', file);
-    await uploadPost(formData);
+    await uploadFile(formData, "");
     alert('게시글 등록 완료');
   }
 

@@ -129,7 +129,8 @@ public class PostDataServiceImpl implements PostDataService {
                 .filePath("/files/" + uuid)
                 .fileType(file.getContentType())
                 .fileSize(file.getSize())
-                .targetType(UploadFile.TargetType.valueOf(type)) // -=========== 원래 (type)
+//                .targetType(UploadFile.TargetType.valueOf(type)) // -=========== 원래 (type)
+                .targetType(UploadFile.builder().build().getTargetType())
                 .build();
         fileRepo.save(uf);
     }

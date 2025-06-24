@@ -7,6 +7,9 @@ import lombok.Getter;
 
 @Getter
 public class UserSignUpRequestDto {
+    @NotBlank(message = "아이디는 필수입니다.")
+    @Size(min = 6, message = "아이디는 최소 6자 이상이어야 합니다.")
+    private String username; // 로그인 ID
 
     @Email(message = "이메일 형식을 확인해주세요.")
     @NotBlank(message = "이메일은 필수입니다.")
