@@ -9,6 +9,7 @@ import LogoutButton from "./components/LogoutButton";
 import FileUpload from "./views/file/FileUpload";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import PostCode from "./views/post-code/PostCode";
+import Gemini from "./views/gemini-api/Gemini";
 
 //! 프로젝트 기초 환경 설정
 // 1. 외부 라이브러리 설치 (의존성 설치)
@@ -71,6 +72,7 @@ function App() {
       >
         <PostCode />
       </div>
+      <Gemini />
       <FileUpload />
       <Routes>
         <Route path="/auth/sign-up" element={<SignUp />} />
